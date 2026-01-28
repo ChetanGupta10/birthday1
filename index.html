@@ -38,6 +38,23 @@ html,body{
 @media(min-width:768px){
   .container{ font-size:2.4rem; width:70%; }
 }
+
+#playbtn{
+  display:none;
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 24px;
+  background:#ff4b7b;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-size:1.1rem;
+  font-family:inherit;
+  cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -47,6 +64,10 @@ html,body{
 <div class="container">
   <div id="text"></div>
 </div>
+
+<!-- MUSIC SECTION -->
+<audio id="bgmusic" src="f2698780-faa4-4db3-a77e-f608f3bf7798.mp3" autoplay loop></audio>
+<button id="playbtn">Tap to Play Music</button>
 
 <script>
 let i = 0;
@@ -74,9 +95,24 @@ function type(){
   }
 }
 type();
+
+// MUSIC LOGIC
+const music = document.getElementById("bgmusic");
+const btn = document.getElementById("playbtn");
+
+music.volume = 0.75;
+
+// try autoplay
+music.play().catch(() => {
+  btn.style.display = "block"; // show button if blocked
+});
+
+// tap to play
+btn.onclick = () => {
+  music.play();
+  btn.style.display = "none";
+};
 </script>
 
 </body>
 </html>
-
-
