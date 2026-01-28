@@ -38,23 +38,37 @@ html,body{
 @media(min-width:768px){
   .container{ font-size:2.4rem; width:70%; }
 }
+
+/* HIGHLIGHTED NAME */
+.name{
+  font-size: 3rem;
+  color: #ffcf4d;
+  font-weight: bold;
+  text-shadow: 0px 0px 8px rgba(255,215,0,0.9),
+               0px 0px 15px rgba(255,200,0,0.6);
+}
+
+@media(min-width:768px){
+  .name{ font-size:4.2rem; }
+}
 </style>
 </head>
 
 <body>
 
 <div class="bg"></div>
+
 <div class="container">
   <div id="text"></div>
 </div>
 
 <script>
 let i = 0;
-let speed = 50; // continuous fast typing
+let speed = 50;
 
 let txt =
 "🎉 HAPPY BIRTHDAY 🎉 <"+
-"Naina <"+
+"<span class='name'>Naina</span> <"+
 "May your life be filled with happiness, peace and success. <"+
 "May every dream you hold close come true, and every step you take lead you toward brighter days ahead. <"+
 "Stay kind. Stay strong. Stay beautifully YOU ✨ <"+
@@ -64,9 +78,10 @@ let txt =
 function type(){
   if(i < txt.length){
     let c = txt.charAt(i);
+
     if(c=='<'){
       document.getElementById('text').innerHTML += "<br><br>";
-    }else{
+    } else {
       document.getElementById('text').innerHTML += c;
     }
     i++;
@@ -75,9 +90,5 @@ function type(){
 }
 type();
 </script>
-
 </body>
 </html>
-
-
-
