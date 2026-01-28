@@ -1,98 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday — Naina Agrahari</title>
+<title>Happy Birthday Naina</title>
+
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "Georgia", serif;
-        background: #fdfdf9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow:hidden;
+  font-family:cursive;
+}
 
-    .card {
-        max-width: 750px;
-        padding: 40px 50px;
-        border: 1px solid #d5c7b4;
-        background: #fffef6;
-        border-radius: 14px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.09);
-        position: relative;
-        background-image: url('https://i.ibb.co/4sfCjyn/flowers.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+.bg_heart{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background-image:url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
+  background-size:100% 100%;
+  transition:background-image 1s ease-in-out;
+  z-index:-1;
+}
 
-    h1 {
-        font-size: 38px;
-        margin: 0;
-        font-weight: 600;
-        color: #b33644;
-        text-align: center;
-    }
+.container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:90%;
+  text-align:center;
+  color:white;
+  font-size:1.8rem;
+}
 
-    h2 {
-        font-size: 48px;
-        margin: 18px 0 12px;
-        text-align: center;
-        color: #a6233a;
-        font-weight: 500;
-    }
+@media(min-width:768px){
+  .container{ font-size:2.5rem; }
+}
 
-    p {
-        font-size: 20px;
-        line-height: 1.5;
-        color: #444;
-        margin: 18px 0;
-        text-align: center;
-    }
+.heart{
+  position:absolute;
+  top:-50%;
+  transform:rotate(-45deg);
+}
+.heart:before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:0;
+  height:100%;
+  width:100%;
+  background:inherit;
+  border-radius:100%;
+}
+.heart:after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:-50%;
+  height:100%;
+  width:100%;
+  background:inherit;
+  border-radius:100%;
+}
 
-    .signature {
-        margin-top: 28px;
-        font-style: italic;
-        font-size: 22px;
-        color: #a6233a;
-    }
+@keyframes love {
+  0%{ top:110%; opacity:1; }
+  100%{ top:-10%; opacity:0; }
+}
 
-    .emoji {
-        font-size: 24px;
-    }
-
-    @media (max-width: 600px) {
-        .card {
-            padding: 28px 24px;
-        }
-        h1 { font-size: 30px; }
-        h2 { font-size: 36px; }
-        p { font-size: 18px; }
-    }
+button#play{
+  padding:10px 24px;
+  background:#ff4b7b;
+  border:none;
+  border-radius:6px;
+  font-size:1.2rem;
+  color:white;
+  margin-top:20px;
+  cursor:pointer;
+  display:none;
+}
 </style>
 </head>
+
 <body>
-<div class="card">
 
-    <h1>🎉 HAPPY BIRTHDAY 🎉</h1>
-
-    <h2>Naina Agrahari</h2>
-
-    <p>May your life be filled with <br><b>happiness, peace, and success.</b></p>
-
-    <p>May every dream you hold close <br>
-       come true, and every step you take lead you toward <b>brighter</b> days ahead.</p>
-
-    <p><b>Stay kind. Stay strong. Stay beautifully YOU ✨</b></p>
-
-    <p>God bless you today & always</p>
-
-    <p class="signature">With love & blessings ❤️</p>
-
+<div class="bg_heart"></div>
+<div class="container">
+  <div id="text1"></div>
+  <button id="play">Play Music</button>
 </div>
+
+<audio id="music" src="mymusic.mp3" autoplay></audio>
+
+<script>
+// ---- HEART FLOAT ANIMATION ----
+setInterval(function(){
+  var r_num = Math.floor(Math.random() * 40) + 1;
+  var r_size = Math.floor(Math.random() * 65) + 10;
+  var r_left = Math.floor(Math.random() * 100) + 1;
+  var r_bg = Math.floor(Math.random() * 25) + 100;
+  var r_time = Math.floor(Math.random() * 5) + 5;
+
+  document.querySelector('.bg_heart').innerHTML +=
+  "<div class='heart' style='width:"+r_size+"px;height:"+r_size+"px;left:"+r_left+"%;background:rgba(255,"+(r_bg-25)+","+r_bg+",1);animation:love "+r_time+"s ease;'></div>";
+
+  document.querySelector('.bg_heart').innerHTML +=
+  "<div class='heart' style='width:"+(r_size-10)+"px;height:"+(r_size-10)+"px;left:"+(r_left+r_num)+"%;background:rgba(255,"+(r_bg-25)+","+(r_bg+25)+",1);animation:love "+(r_time+5)+"s ease;'></div>";
+},500);
+
+
+// ---- TYPEWRITER BIRTHDAY TEXT ----
+var i = 0;
+var speed = 90; // slow romantic
+var txt1 =
+"🎉 HAPPY BIRTHDAY 🎉 <"+
+"Naina <"+
+"May your life be filled with happiness, peace, and success. <"+
+"May every dream you hold close come true, and every step you take lead you toward brighter days ahead. <"+
+"Stay kind. Stay strong. Stay beautifully YOU ✨ <"+
+"God bless you today & always <"+
+"With love & blessings ❤️ |";
+
+function typeWriter(){
+  if(i < txt1.length){
+    let ch = txt1.charAt(i);
+
+    if(ch == '<'){
+      document.getElementById('text1').innerHTML += "<br><br>";
+    }
+    else if(ch == '|'){
+      // background switch on trigger
+      document.querySelector('.bg_heart').style.backgroundImage =
+      "url('https://i.pinimg.com/originals/65/51/54/65515476a91a87064b0bf0fb595205fa.jpg')";
+    }
+    else{
+      document.getElementById('text1').innerHTML += ch;
+    }
+
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter();
+
+
+// ---- AUTOPLAY + FALLBACK FOR MOBILE ----
+const music = document.getElementById("music");
+const playBtn = document.getElementById("play");
+
+music.play().catch(()=>{
+  playBtn.style.display="inline-block";
+});
+
+playBtn.addEventListener("click", ()=>{
+  music.play();
+  playBtn.style.display="none";
+});
+</script>
+
 </body>
 </html>
