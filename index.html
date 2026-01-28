@@ -38,6 +38,22 @@ html,body{
 @media(min-width:768px){
   .container{ font-size:2.4rem; width:70%; }
 }
+
+#playbtn{
+  display:none;
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 24px;
+  background:#ff4b7b;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-size:1.1rem;
+  font-family:inherit;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -48,9 +64,12 @@ html,body{
   <div id="text"></div>
 </div>
 
-<!-- MUSIC (no button, strict autoplay) -->
-<audio id="bgmusic" playsinline autoplay loop muted
-src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3"></audio>
+<!-- MUSIC -->
+<audio id="bgmusic" 
+src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3" 
+autoplay loop></audio>
+
+<button id="playbtn">Tap to Play Music</button>
 
 <script>
 let i = 0;
@@ -79,21 +98,26 @@ function type(){
 }
 type();
 
-// aggressive autoplay unlock
+// MUSIC LOGIC
 const music = document.getElementById("bgmusic");
+const btn = document.getElementById("playbtn");
 
-// unmute after slight delay
-setTimeout(()=>{
-  music.muted = false;
-  music.volume = 0.75;
+music.volume = 0.75;
+
+// iPhone autoplay hack
+music.muted = true;
+music.play().then(()=>{
+  setTimeout(()=> music.muted=false, 300);
+}).catch(()=>{
+  btn.style.display="block";
+});
+
+// fallback button
+btn.onclick = () => {
   music.play();
-}, 300);
-
-// second chance unmute
-setTimeout(()=>{
-  music.play();
-}, 1500);
-
+  music.muted=false;
+  btn.style.display="none";
+};
 </script>
 
 </body>
