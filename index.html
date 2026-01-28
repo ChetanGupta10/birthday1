@@ -1,274 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday 🎂</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: url('https://yourusername.github.io/repo-name/images/my-bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-      height: 100%;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday — Naina Agrahari</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Georgia", serif;
+        background: #fdfdf9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
     }
 
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-    
-    .center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      z-index: 2;
-      padding: 0 5vw;
-      width: 90%;
-      box-sizing: border-box;
+    .card {
+        max-width: 750px;
+        padding: 40px 50px;
+        border: 1px solid #d5c7b4;
+        background: #fffef6;
+        border-radius: 14px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+        position: relative;
+        background-image: url('https://i.ibb.co/4sfCjyn/flowers.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     h1 {
-      font-size: clamp(24px, 6vw, 48px);
-      animation: glow 1.5s ease-in-out infinite alternate;
+        font-size: 38px;
+        margin: 0;
+        font-weight: 600;
+        color: #b33644;
+        text-align: center;
     }
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
-      }
-      to {
-        text-shadow: 0 0 20px #ff1493, 0 0 30px #ff1493;
-      }
+    h2 {
+        font-size: 48px;
+        margin: 18px 0 12px;
+        text-align: center;
+        color: #a6233a;
+        font-weight: 500;
     }
 
-    .btn {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: clamp(16px, 4vw, 24px);
-      max-width: 90%;
-      border: none;
-      background: #ff1493;
-      color: white;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff69b4;
-      transition: transform 0.3s;
+    p {
+        font-size: 20px;
+        line-height: 1.5;
+        color: #444;
+        margin: 18px 0;
+        text-align: center;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
+    .signature {
+        margin-top: 28px;
+        font-style: italic;
+        font-size: 22px;
+        color: #a6233a;
     }
 
-    #msgBox {
-      display: block;
-      position: absolute;
-      top: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow-y: auto;
-      width: 90%;
-      max-width: 90vh;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      border-radius: 20px;
-      z-index: 5;
-      animation: pop 0.5s ease-out;
-      box-sizing: border-box;
+    .emoji {
+        font-size: 24px;
     }
 
-    @keyframes pop {
-      from {
-        transform: translateX(-50%) scale(0);
-      }
-      to {
-        transform: translateX(-50%) scale(1);
-      }
+    @media (max-width: 600px) {
+        .card {
+            padding: 28px 24px;
+        }
+        h1 { font-size: 30px; }
+        h2 { font-size: 36px; }
+        p { font-size: 18px; }
     }
-
-    #msgBox h2 {
-      font-size: clamp(20px, 5vw, 36px);
-      margin-bottom: 10px;
-    }
-
-    #msgBox p {
-      font-size: clamp(14px, 4vw, 22px);
-      line-height: 1.5;
-    }
-
-    .sparkle {
-      position: fixed;
-      width: 5px;
-      height: 5px;
-      background: white;
-      border-radius: 50%;
-      animation: sparkle 1s ease-out forwards;
-      z-index: 1;
-    }
-
-    @keyframes sparkle {
-      to {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
-    }
-.single-photo {
-  width: 100%;
-  max-height: 60vh; /* 60% of screen height */
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
-}
-
-
-
-
-    
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 4;
-    }
-  </style>
+</style>
 </head>
 <body>
+<div class="card">
 
-<div class="center">
-  <button class="btn" onclick="showMessage()">Tap for Surprise 🎁</button>
+    <h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+    <h2>Naina Agrahari</h2>
+
+    <p>May your life be filled with <br><b>happiness, peace, and success.</b></p>
+
+    <p>May every dream you hold close <br>
+       come true, and every step you take lead you toward <b>brighter</b> days ahead.</p>
+
+    <p><b>Stay kind. Stay strong. Stay beautifully YOU ✨</b></p>
+
+    <p>God bless you today & always</p>
+
+    <p class="signature">With love & blessings ❤️</p>
+
 </div>
-
-<div id="msgBox">
- <h3> HAPPY BIRTHDAY MY PRINCESS </h3>
-  <p>
-  💞Happy birthday my motuuu, 🎀😘   <br>
-  you are very sweet caring and very <br> 
-  nice and motuu I love you very much🫶🩷<br>
-  you are the best part of my life 🌍🤗 <br>
-  and you are always my favourite 🥰and  <br>
-  will always remain so my pakodi😘  <br>
-  motuu I will always wish that you stay <br>
-  happy like this, keep laughing😁 and <br>
-  always be naughty 😉and khadus 😝and <br> 
-  be mine🫀🤗💝 bachhaa🤗 love you very <br>
-  much💝💓💖 and happy birthday my happiness <br>
- 😊my kurchari, pakodi, golu molu, my princess <br>
- and pretty and gorgeous tikhi mirchi😝🌺😘 <br>
- Happy Bala birthday my life ❤💝🌹and my <br>favorite person 🤭🫣💝
-    
-  </p>
- <img src="mayank pic 1.jpg" class="single-photo" alt="Happy Girl">
-
-
-<canvas id="fireworks"></canvas>
-</div>
-
-<!-- 🎶 Background Music -->
-<audio id="bgMusic" loop>
-  <source src="Samjhawan (Gravero Lofi Flip)(KoshalWorld.Com).mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  function showMessage() {
-    document.getElementById('msgBox').style.display = 'block';
-
-    // Play background music
-    const music = document.getElementById('bgMusic');
-    music.muted = false;
-    music.play().catch(e => {
-      console.log("Music autoplay blocked. Will play on user gesture.");
-    });
-
-    explodeFireworks();
-  }
-
-  // Sparkle effect
-  document.addEventListener('mousemove', e => {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = e.pageX + 'px';
-    sparkle.style.top = e.pageY + 'px';
-    document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 1000);
-  });
-
-  // Fireworks
-  const canvas = document.getElementById('fireworks');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  function explodeFireworks() {
-    for (let i = 0; i < 500; i++) {
-      setTimeout(() => createFirework(), i * 100);
-    }
-  }
-
-  let particles = [];
-  function createFirework() {
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height / 2;
-    let radius = Math.random() * 3 + 2;
-    let count = 50;
-    for (let i = 0; i < count; i++) {
-      let angle = (i / count) * 2 * Math.PI;
-      let speed = Math.random() * 4 + 2;
-      let dx = Math.cos(angle) * speed;
-      let dy = Math.sin(angle) * speed;
-      particles.push({
-        x, y, dx, dy, radius,
-        alpha: 1,
-        color: `hsl(${Math.random() * 360}, 100%, 50%)`
-      });
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((p, i) => {
-      p.x += p.dx;
-      p.y += p.dy;
-      p.alpha -= 0.01;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-      ctx.fillStyle = `rgba(${hexToRGB(p.color)}, ${p.alpha})`;
-      ctx.fill();
-      if (p.alpha <= 0) particles.splice(i, 1);
-    });
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-
-  function hexToRGB(h) {
-    let temp = document.createElement("div");
-    temp.style.color = h;
-    document.body.appendChild(temp);
-    let rgb = getComputedStyle(temp).color;
-    document.body.removeChild(temp);
-    return rgb.match(/\d+/g).join(",");
-  }
-
-  window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
-</script>
-
 </body>
 </html>
-
