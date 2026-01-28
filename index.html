@@ -54,7 +54,6 @@ html,body{
   font-family:inherit;
   cursor:pointer;
 }
-
 </style>
 </head>
 
@@ -65,13 +64,16 @@ html,body{
   <div id="text"></div>
 </div>
 
-<!-- MUSIC SECTION -->
-<audio id="bgmusic" src="f2698780-faa4-4db3-a77e-f608f3bf7798.mp3" autoplay loop></audio>
+<!-- MUSIC -->
+<audio id="bgmusic" 
+src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3" 
+autoplay loop></audio>
+
 <button id="playbtn">Tap to Play Music</button>
 
 <script>
 let i = 0;
-let speed = 50; // continuous fast typing
+let speed = 50;
 
 let txt =
 "🎉 HAPPY BIRTHDAY 🎉 <"+
@@ -102,15 +104,19 @@ const btn = document.getElementById("playbtn");
 
 music.volume = 0.75;
 
-// try autoplay
-music.play().catch(() => {
-  btn.style.display = "block"; // show button if blocked
+// iPhone autoplay hack
+music.muted = true;
+music.play().then(()=>{
+  setTimeout(()=> music.muted=false, 300);
+}).catch(()=>{
+  btn.style.display="block";
 });
 
-// tap to play
+// fallback button
 btn.onclick = () => {
   music.play();
-  btn.style.display = "none";
+  music.muted=false;
+  btn.style.display="none";
 };
 </script>
 
