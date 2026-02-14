@@ -150,15 +150,15 @@ function checkName(){
   let name = document.getElementById("username").value.trim();
 
   if(name.toLowerCase() === "sonam"){
-
-    // 🔥 PLAY MUSIC ON BUTTON CLICK
-    music.play();
+    // ⭐ Play music when user clicks this button
+    music.play().catch(err => {
+      console.log("Autoplay blocked:", err);
+    });
 
     document.getElementById("greeting").innerHTML =
-    "🎉 Happy Birthday " + name + " 🎉";
+      "🎉 Happy Birthday " + name + " 🎉";
 
     nextSlide();
-
   } else {
     alert("Oops! This surprise is only for Sonam 💖");
   }
@@ -172,8 +172,10 @@ function nextSlide(){
 }
 </script>
 
+
 </body>
 </html>
+
 
 
 
