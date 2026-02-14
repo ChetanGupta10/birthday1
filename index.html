@@ -15,26 +15,28 @@
   font-family:'Poppins', sans-serif;
 }
 
-body{
+html,body{
+  height:100%;
+  width:100%;
   overflow:hidden;
+  position:fixed;
 }
 
-/* SLIDE STYLE */
 .slide{
   position:absolute;
   width:100%;
-  height:100vh;
+  height:100%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  transition:1s ease;
-  padding:30px;
+  transition:0.8s ease;
+  padding:20px;
   color:white;
 }
 
-/* Premium backgrounds */
+/* Premium gradients */
 #slide1{background:linear-gradient(135deg,#ff4e50,#fc913a);}
 #slide2{background:linear-gradient(135deg,#141e30,#243b55); left:100%;}
 #slide3{background:linear-gradient(135deg,#42275a,#734b6d); left:200%;}
@@ -44,12 +46,16 @@ body{
 #slide7{background:linear-gradient(135deg,#2c3e50,#4ca1af); left:600%;}
 
 h1{
-  font-size:2.5rem;
+  font-size:2rem;
   margin-bottom:20px;
 }
 
+@media(min-width:768px){
+  h1{ font-size:2.8rem; }
+}
+
 button{
-  padding:12px 30px;
+  padding:12px 25px;
   border:none;
   border-radius:30px;
   background:#fff;
@@ -69,41 +75,34 @@ input{
 }
 
 .photo{
-  width:260px;
+  width:70%;
+  max-width:280px;
   border-radius:20px;
   margin-top:20px;
-  transition:0.5s;
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-.photo:hover{
-  transform:scale(1.05);
-}
-
 .message{
-  max-width:750px;
-  line-height:1.7;
-  font-size:1.1rem;
+  max-width:90%;
+  line-height:1.6;
+  font-size:1rem;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Slide 1 -->
 <div class="slide" id="slide1">
   <h1>Enter Your Name 💖</h1>
   <input type="text" id="username" placeholder="Type your name">
   <button onclick="checkName()">Open Your Surprise</button>
 </div>
 
-<!-- Slide 2 -->
 <div class="slide" id="slide2">
   <h1 id="greeting"></h1>
   <button onclick="nextSlide()">Next</button>
 </div>
 
-<!-- Slide 3 - Message -->
 <div class="slide" id="slide3">
   <h1>For You 💖</h1>
   <div class="message">
@@ -117,7 +116,6 @@ input{
   <button onclick="nextSlide()">Next</button>
 </div>
 
-<!-- Photo Slides -->
 <div class="slide" id="slide4">
   <img src="mayank1.jpeg" class="photo">
   <button onclick="nextSlide()">Next</button>
@@ -138,9 +136,9 @@ input{
   <h1 style="margin-top:20px;">Stay kind. Stay strong. Stay beautifully YOU ✨</h1>
 </div>
 
-<!-- MUSIC -->
-<audio id="music" autoplay loop playsinline muted>
-  <source src="mymusic.mp3" type="audio/mp3">
+<!-- MUSIC (Correct RAW GitHub Link) -->
+<audio id="music" autoplay loop playsinline muted
+src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3">
 </audio>
 
 <script>
@@ -164,7 +162,7 @@ function nextSlide(){
   });
 }
 
-/* Autoplay Unlock */
+/* Autoplay Unlock for Mobile */
 const music = document.getElementById("music");
 setTimeout(()=>{
   music.muted=false;
