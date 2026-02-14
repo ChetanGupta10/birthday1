@@ -15,161 +15,149 @@
   font-family:'Poppins', sans-serif;
 }
 
-html,body{
-  height:100%;
-  width:100%;
-  overflow:hidden;
-  position:fixed;
+body{
+  background:linear-gradient(135deg,#ff4e50,#fc913a);
+  color:#fff;
+  overflow-x:hidden;
 }
 
-.slide{
-  position:absolute;
-  width:100%;
-  height:100%;
+/* HERO */
+.hero{
+  height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  transition:0.8s ease;
   padding:20px;
-  color:white;
 }
 
-/* Premium gradients */
-#slide1{background:linear-gradient(135deg,#ff4e50,#fc913a);}
-#slide2{background:linear-gradient(135deg,#141e30,#243b55); left:100%;}
-#slide3{background:linear-gradient(135deg,#42275a,#734b6d); left:200%;}
-#slide4{background:linear-gradient(135deg,#1f4037,#99f2c8); left:300%;}
-#slide5{background:linear-gradient(135deg,#3a1c71,#d76d77,#ffaf7b); left:400%;}
-#slide6{background:linear-gradient(135deg,#000428,#004e92); left:500%;}
-#slide7{background:linear-gradient(135deg,#2c3e50,#4ca1af); left:600%;}
-
-h1{
-  font-size:2rem;
-  margin-bottom:20px;
+.hero h1{
+  font-size:2.5rem;
+  font-weight:800;
 }
 
-@media(min-width:768px){
-  h1{ font-size:2.8rem; }
-}
-
-button{
-  padding:12px 25px;
+.hero button{
+  margin-top:30px;
+  padding:12px 30px;
+  font-size:1rem;
   border:none;
   border-radius:30px;
   background:#fff;
   color:#ff4e50;
-  font-size:1rem;
   cursor:pointer;
-  margin-top:20px;
+  transition:0.3s;
 }
 
-input{
-  padding:10px 20px;
-  border-radius:30px;
-  border:none;
-  font-size:1rem;
+.hero button:hover{
+  transform:scale(1.1);
+}
+
+/* MESSAGE */
+.section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
   text-align:center;
+  background:#111;
+}
+
+.section h2{
+  font-size:2rem;
   margin-bottom:20px;
 }
 
-.photo{
-  width:70%;
-  max-width:280px;
+.message-box{
+  max-width:700px;
+  background:rgba(255,255,255,0.08);
+  padding:30px;
   border-radius:20px;
-  margin-top:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  line-height:1.7;
+  font-size:1.1rem;
 }
 
-.message{
-  max-width:90%;
-  line-height:1.6;
-  font-size:1rem;
+/* PHOTOS */
+.photos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+  width:90%;
+  max-width:900px;
+  margin-top:30px;
+}
+
+.photos img{
+  width:100%;
+  border-radius:20px;
+  transition:0.4s;
+}
+
+.photos img:hover{
+  transform:scale(1.05);
 }
 </style>
 </head>
 
 <body>
 
-<div class="slide" id="slide1">
-  <h1>Enter Your Name 💖</h1>
-  <input type="text" id="username" placeholder="Type your name">
-  <button onclick="checkName()">Open Your Surprise</button>
-</div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>🎉 Happy Birthday Sonam 🎉</h1>
+  <button onclick="openSurprise()">Open Your Surprise</button>
+</section>
 
-<div class="slide" id="slide2">
-  <h1 id="greeting"></h1>
-  <button onclick="nextSlide()">Next</button>
-</div>
+<!-- MESSAGE SECTION -->
+<section class="section" id="messageSection" style="display:none;">
+  <h2>For You 💖</h2>
 
-<div class="slide" id="slide3">
-  <h1>For You 💖</h1>
-  <div class="message">
-    🎀 Wish you a very very happy birthday my pyari Sonam 🥰 <br><br>
-    You are very nice and very cute too 🌸 you are very special in my life. 🤗 <br><br>
-    You are my well wisher 😊 you are a supporting person in my life 😊 <br><br>
-    But yes you are a little crazy 😅 but you are nice and thank you for coming in my life 💝🫂 <br><br>
-    And happy birthday once again 🥳 my sweet heart 💗 my happiness 😊 my bestest friend 🫂🤗 <br><br>
-    And love you so much 💞💗❤️💖
+  <div class="message-box">
+    🎀 Wish you a very very happy birthday my pyari Sonam 🥰.<br><br>
+    You are very nice and very cute too 🌸, you are very special in my life. 🤗<br><br>
+    You are my well wisher 😇, you are a supporting person in my life 😊 but yes you are a little crazy 😄<br><br>
+    But you are nice and thank you for coming in my life 💝👫 and happy birthday once again 🎉 my sweet heart 💗<br><br>
+    My happiness 😚 my bestest friend 👫🤗 and love you so much 💞❤️💖
   </div>
-  <button onclick="nextSlide()">Next</button>
-</div>
 
-<div class="slide" id="slide4">
-  <img src="mayank1.jpeg" class="photo">
-  <button onclick="nextSlide()">Next</button>
-</div>
+  <div class="photos">
+    <img src="mayank1.jpeg">
+    <img src="mayank2.jpeg">
+    <img src="mayank3.jpeg">
+    <img src="mayank4.jpeg">
+  </div>
+</section>
 
-<div class="slide" id="slide5">
-  <img src="mayank2.jpeg" class="photo">
-  <button onclick="nextSlide()">Next</button>
-</div>
-
-<div class="slide" id="slide6">
-  <img src="mayank3.jpeg" class="photo">
-  <button onclick="nextSlide()">Next</button>
-</div>
-
-<div class="slide" id="slide7">
-  <img src="mayank4.jpeg" class="photo">
-  <h1 style="margin-top:20px;">Stay kind. Stay strong. Stay beautifully YOU ✨</h1>
-</div>
-
-<!-- MUSIC (Correct RAW GitHub Link) -->
-<audio id="music" autoplay loop playsinline muted
-src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3">
+<!-- MUSIC -->
+<audio id="music" autoplay loop playsinline muted>
+  <source src="song.mp3" type="audio/mp3">
 </audio>
 
 <script>
-let current = 0;
-
-function checkName(){
-  let name = document.getElementById("username").value.trim();
-  if(name.toLowerCase() === "sonam"){
-    document.getElementById("greeting").innerHTML =
-    "🎉 Happy Birthday " + name + " 🎉";
-    nextSlide();
-  } else {
-    alert("Oops! This surprise is only for Sonam 💖");
-  }
-}
-
-function nextSlide(){
-  current++;
-  document.querySelectorAll(".slide").forEach((slide,i)=>{
-    slide.style.left = ((i - current) * 100) + "%";
+function openSurprise(){
+  document.getElementById("messageSection").style.display="flex";
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth"
   });
 }
 
-/* Autoplay Unlock for Mobile */
+/* AUTOPLAY FIX */
 const music = document.getElementById("music");
-setTimeout(()=>{
-  music.muted=false;
-  music.volume=0.8;
-  music.play();
-},300);
+
+music.muted = true;
+
+music.play().then(()=>{
+  setTimeout(()=>{
+    music.muted = false;
+    music.volume = 0.8;
+  },500);
+}).catch(()=>{
+  console.log("Autoplay blocked");
+});
 </script>
 
 </body>
 </html>
+
