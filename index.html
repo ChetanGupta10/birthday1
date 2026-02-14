@@ -136,22 +136,29 @@ input{
   <h1 style="margin-top:20px;">Stay kind. Stay strong. Stay beautifully YOU ✨</h1>
 </div>
 
-<!-- MUSIC (Correct RAW GitHub Link) -->
 <!-- MUSIC -->
 <audio id="music" loop playsinline>
   <source src="song.mp3" type="audio/mp3">
 </audio>
 
-
 <script>
 let current = 0;
+const music = document.getElementById("music");
+music.volume = 0.8;
 
 function checkName(){
   let name = document.getElementById("username").value.trim();
+
   if(name.toLowerCase() === "sonam"){
+
+    // 🔥 PLAY MUSIC ON BUTTON CLICK
+    music.play();
+
     document.getElementById("greeting").innerHTML =
     "🎉 Happy Birthday " + name + " 🎉";
+
     nextSlide();
+
   } else {
     alert("Oops! This surprise is only for Sonam 💖");
   }
@@ -163,24 +170,11 @@ function nextSlide(){
     slide.style.left = ((i - current) * 100) + "%";
   });
 }
-
-const music = document.getElementById("music");
-music.volume = 0.8;
-
-// 🔥 play on first user interaction anywhere
-function startMusic() {
-  music.play();
-  document.removeEventListener("click", startMusic);
-  document.removeEventListener("touchstart", startMusic);
-}
-
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
 </script>
-
 
 </body>
 </html>
+
 
 
 
