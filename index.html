@@ -163,23 +163,23 @@ function nextSlide(){
   });
 }
 
-/* AUTOPLAY FIX */
 const music = document.getElementById("music");
+music.volume = 0.8;
 
-music.muted = true;
+// 🔥 play on first user interaction anywhere
+function startMusic() {
+  music.play();
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("touchstart", startMusic);
+}
 
-music.play().then(()=>{
-  setTimeout(()=>{
-    music.muted = false;
-    music.volume = 0.8;
-  },500);
-}).catch(()=>{
-  console.log("Autoplay blocked by browser");
-});
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
 </script>
 
 
 </body>
 </html>
+
 
 
