@@ -137,8 +137,9 @@ input{
 </div>
 
 <!-- MUSIC (Correct RAW GitHub Link) -->
-<audio id="music" autoplay loop playsinline muted
-src="song.mp3" type="audio/mp3">
+<!-- MUSIC -->
+<audio id="music" autoplay loop playsinline muted>
+  <source src="song.mp3" type="audio/mp3">
 </audio>
 
 <script>
@@ -162,15 +163,23 @@ function nextSlide(){
   });
 }
 
-/* Autoplay Unlock for Mobile */
+/* AUTOPLAY FIX */
 const music = document.getElementById("music");
-setTimeout(()=>{
-  music.muted=false;
-  music.volume=0.8;
-  music.play();
-},300);
+
+music.muted = true;
+
+music.play().then(()=>{
+  setTimeout(()=>{
+    music.muted = false;
+    music.volume = 0.8;
+  },500);
+}).catch(()=>{
+  console.log("Autoplay blocked by browser");
+});
 </script>
+
 
 </body>
 </html>
+
 
