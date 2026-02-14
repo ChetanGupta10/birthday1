@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Surprise</title>
+<title>Happy Birthday Sonam</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 
@@ -30,7 +30,7 @@ body{
   align-items:center;
   text-align:center;
   transition:1s ease;
-  padding:20px;
+  padding:30px;
 }
 
 .slide h1{
@@ -58,7 +58,7 @@ input{
   margin-bottom:20px;
 }
 
-/* Backgrounds */
+/* Background Colors */
 #slide1{background:linear-gradient(135deg,#ff4e50,#fc913a);}
 #slide2{background:#111; color:#fff; left:100%;}
 #slide3{background:#1a1a1a; left:200%;}
@@ -67,7 +67,7 @@ input{
 
 /* Photos */
 .photo{
-  width:250px;
+  width:260px;
   border-radius:20px;
   margin-top:20px;
   transition:0.5s;
@@ -75,6 +75,12 @@ input{
 
 .photo:hover{
   transform:scale(1.05);
+}
+
+.message{
+  max-width:700px;
+  line-height:1.7;
+  font-size:1.1rem;
 }
 </style>
 </head>
@@ -94,22 +100,29 @@ input{
   <button onclick="nextSlide()">Next</button>
 </div>
 
-<!-- SLIDE 3 - PHOTO 1 -->
+<!-- SLIDE 3 - MESSAGE -->
 <div class="slide" id="slide3">
-  <h1>Beautiful Memories 📸</h1>
+  <h1>For You 💖</h1>
+  <div class="message">
+    🎀 Wish you a very very happy birthday my pyari Sonam 🥰 <br><br>
+    You are very nice and very cute too 🌸 you are very special in my life. 🤗 <br><br>
+    You are my well wisher 😊 you are a supporting person in my life 😊 <br><br>
+    But yes you are a little crazy 😅 but you are nice and thank you for coming in my life 💝🫂 <br><br>
+    And happy birthday once again 🥳 my sweet heart 💗 my happiness 😊 my bestest friend 🫂🤗 <br><br>
+    And love you so much 💞💗❤️💖
+  </div>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- SLIDE 4 - PHOTO 1 -->
+<div class="slide" id="slide4">
   <img src="mayank1.jpeg" class="photo">
   <button onclick="nextSlide()">Next</button>
 </div>
 
-<!-- SLIDE 4 - PHOTO 2 -->
-<div class="slide" id="slide4">
-  <img src="mayank2.jpeg" class="photo">
-  <button onclick="nextSlide()">Next</button>
-</div>
-
-<!-- SLIDE 5 - PHOTO 3 + MESSAGE -->
+<!-- SLIDE 5 - PHOTO 2 -->
 <div class="slide" id="slide5">
-  <img src="mayank3.jpeg" class="photo">
+  <img src="mayank2.jpeg" class="photo">
   <h1 style="margin-top:20px;">
     Stay kind. Stay strong. Stay beautifully YOU ✨
   </h1>
@@ -126,12 +139,12 @@ let current = 0;
 function checkName(){
   let name = document.getElementById("username").value.trim();
 
-  if(name.toLowerCase() === "naina"){
+  if(name.toLowerCase() === "sonam"){
     document.getElementById("greeting").innerHTML =
     "🎉 Happy Birthday " + name + " 🎉";
     nextSlide();
   } else {
-    alert("Oops! This surprise is only for Naina 💖");
+    alert("Oops! This surprise is only for Sonam 💖");
   }
 }
 
@@ -142,11 +155,11 @@ function nextSlide(){
   });
 }
 
-/* Autoplay unlock */
+/* Autoplay Unlock */
 const music = document.getElementById("music");
 setTimeout(()=>{
   music.muted=false;
-  music.volume=0.7;
+  music.volume=0.8;
   music.play();
 },300);
 </script>
