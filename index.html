@@ -7,71 +7,87 @@ html,body{
   margin:0;
   padding:0;
   height:100%;
-  width:100%;
   overflow:hidden;
   font-family: "Georgia", serif;
   color:white;
 }
 
-.bg{
-  position:absolute;
-  top:0;
-  left:0;
+/* SLIDESHOW BACKGROUND */
+.slideshow{
+  position:fixed;
   width:100%;
   height:100%;
-  background-image:url("https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/WhatsApp%20Image%202026-01-28%20at%2018.12.41.jpeg");
-  background-size:cover;
-  background-position:center;
-  filter:brightness(0.85);
+  z-index:-1;
 }
 
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 2s ease-in-out;
+}
+
+.active{
+  opacity:1;
+}
+
+/* TEXT CONTAINER */
 .container{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:85%;
   text-align:center;
-  font-size:1.8rem;
+  width:85%;
+  font-size:2rem;
+  text-shadow:0 0 10px rgba(0,0,0,0.8);
 }
 
 @media(min-width:768px){
-  .container{ font-size:2.4rem; width:70%; }
-}
-
-#playbtn{
-  display:none;
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:10px 24px;
-  background:#ff4b7b;
-  border:none;
-  border-radius:8px;
-  color:white;
-  font-size:1.1rem;
-  font-family:inherit;
-  cursor:pointer;
+  .container{
+    font-size:3rem;
+    width:60%;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<!-- SLIDES -->
+<div class="slideshow">
+  <div class="slide active" style="background-image:url('photo1.jpg')"></div>
+  <div class="slide" style="background-image:url('photo2.jpg')"></div>
+  <div class="slide" style="background-image:url('photo3.jpg')"></div>
+  <div class="slide" style="background-image:url('photo4.jpg')"></div>
+</div>
+
+<!-- TEXT -->
 <div class="container">
   <div id="text"></div>
 </div>
 
 <!-- MUSIC -->
-<audio id="bgmusic" 
-src="https://raw.githubusercontent.com/ChetanGupta10/birthday1/main/Bin%20Tere%20Kya%20Yaar%20Mera%20%5B128%20Kbps%5D-(SongsPk.com.se).mp3" 
-autoplay loop></audio>
-
-<button id="playbtn">Tap to Play Music</button>
+<audio id="bgmusic" autoplay loop playsinline muted>
+  <source src="mymusic.mp3" type="audio/mp3">
+</audio>
 
 <script>
+// ===== SLIDESHOW =====
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+setInterval(()=>{
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 4000); // change every 4 sec
+
+
+// ===== TYPING TEXT =====
 let i = 0;
 let speed = 50;
 
@@ -79,9 +95,8 @@ let txt =
 "🎉 HAPPY BIRTHDAY 🎉 <"+
 "Naina <"+
 "May your life be filled with happiness, peace and success. <"+
-"May every dream you hold close come true, and every step you take lead you toward brighter days ahead. <"+
+"May every dream you hold close come true. <"+
 "Stay kind. Stay strong. Stay beautifully YOU ✨ <"+
-"God bless you today & always <"+
 "With love & blessings ❤️";
 
 function type(){
@@ -89,7 +104,7 @@ function type(){
     let c = txt.charAt(i);
     if(c=='<'){
       document.getElementById('text').innerHTML += "<br><br>";
-    }else{
+    } else {
       document.getElementById('text').innerHTML += c;
     }
     i++;
@@ -98,27 +113,19 @@ function type(){
 }
 type();
 
-// MUSIC LOGIC
+
+// ===== AUTOPLAY UNLOCK =====
 const music = document.getElementById("bgmusic");
-const btn = document.getElementById("playbtn");
 
-music.volume = 0.75;
-
-// iPhone autoplay hack
-music.muted = true;
-music.play().then(()=>{
-  setTimeout(()=> music.muted=false, 300);
-}).catch(()=>{
-  btn.style.display="block";
-});
-
-// fallback button
-btn.onclick = () => {
+setTimeout(()=>{
+  music.muted = false;
+  music.volume = 0.75;
   music.play();
-  music.muted=false;
-  btn.style.display="none";
-};
+}, 300);
+
 </script>
 
 </body>
 </html>
+
+
